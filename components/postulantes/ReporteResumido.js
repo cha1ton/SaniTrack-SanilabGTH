@@ -9,6 +9,7 @@ export default function ReporteResumido({ postulantes }) {
   const [filtroPeriodo, setFiltroPeriodo] = useState("todos");
   const [tipoReporte, setTipoReporte] = useState("estadisticas"); // "estadisticas" o "lista"
   const [copiado, setCopiado] = useState(false);
+  const [ocultarAceptados, setOcultarAceptados] = useState(false);
 
   // Obtener nombre del período seleccionado
   const getNombrePeriodo = () => {
@@ -32,6 +33,11 @@ export default function ReporteResumido({ postulantes }) {
   // Filtrar datos
   const datosFiltrados = () => {
     let filtered = [...postulantes];
+    
+    // Aplicar filtro de aceptados si existe la prop
+    if (ocultarAceptados) {
+      filtered = filtered.filter(p => p.estado_postulante !== "ACEPTADO (CONFIRMADO)");
+    }
     
     // Filtro por estado
     if (filtroEstado !== "todos") {
@@ -255,6 +261,21 @@ export default function ReporteResumido({ postulantes }) {
                   </option>
                 ))}
               </select>
+            </div>
+
+            <div className="col-md-2 mb-2 d-flex align-items-end">
+              <div className="form-check">
+                <input
+                  type="checkbox"
+                  className="form-check-input"
+                  id="ocultarAceptadosReporte"
+                  checked={ocultarAceptados}
+                  onChange={(e) => setOcultarAceptados(e.target.checked)}
+                />
+                <label className="form-check-label" htmlFor="ocultarAceptadosReporte">
+                  🙈 Ocultar aceptados
+                </label>
+              </div>
             </div>
             
             <div className="col-md-2 mb-2 d-flex align-items-end">

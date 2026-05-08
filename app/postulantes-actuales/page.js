@@ -2,7 +2,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { getPostulantesActuales } from "../../services/postulantesActualesService";
+import { getPostulantesActuales, ESTADOS_POSTULANTE } from "../../services/postulantesActualesService";
 import FiltrosPostulantes from "../../components/postulantes/FiltrosPostulantes";
 import TablaPostulantes from "../../components/postulantes/TablaPostulantes";
 import ModalDetalle from "../../components/postulantes/ModalDetalle";
@@ -13,12 +13,13 @@ export default function PostulantesActualesPage() {
   const [todosPostulantes, setTodosPostulantes] = useState([]);
   const [filteredPostulantes, setFilteredPostulantes] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [vistaActual, setVistaActual] = useState("lista"); // "lista" o "reporte"
+  const [vistaActual, setVistaActual] = useState("lista");
   
   // Filtros
   const [busqueda, setBusqueda] = useState("");
   const [filtroEstado, setFiltroEstado] = useState("todos");
   const [filtroPeriodo, setFiltroPeriodo] = useState("todos");
+  const [ocultarAceptados, setOcultarAceptados] = useState(false);
   const [paginaActual, setPaginaActual] = useState(1);
   const itemsPorPagina = 20;
 
@@ -39,6 +40,11 @@ export default function PostulantesActualesPage() {
   // Aplicar filtros
   useEffect(() => {
     let filtered = [...todosPostulantes];
+    
+    // Ocultar aceptados si el checkbox está marcado
+    if (ocultarAceptados) {
+      filtered = filtered.filter(p => p.estado_postulante !== "ACEPTADO (CONFIRMADO)");
+    }
     
     // Filtro por estado
     if (filtroEstado !== "todos") {
@@ -87,7 +93,7 @@ export default function PostulantesActualesPage() {
     
     setFilteredPostulantes(filtered);
     setPaginaActual(1);
-  }, [todosPostulantes, filtroEstado, filtroPeriodo, busqueda]);
+  }, [todosPostulantes, filtroEstado, filtroPeriodo, busqueda, ocultarAceptados]);
 
   useEffect(() => {
     loadData();
@@ -135,6 +141,7 @@ export default function PostulantesActualesPage() {
       <div className="alert alert-info">
         <strong>Total de postulantes:</strong> {todosPostulantes.length} | 
         <strong> Mostrando:</strong> {filteredPostulantes.length} después de filtros
+        {ocultarAceptados && <span className="badge bg-success ms-2">🙈 Aceptados ocultos</span>}
       </div>
 
       {vistaActual === "lista" ? (
@@ -147,6 +154,8 @@ export default function PostulantesActualesPage() {
             setFiltroEstado={setFiltroEstado}
             filtroPeriodo={filtroPeriodo}
             setFiltroPeriodo={setFiltroPeriodo}
+            ocultarAceptados={ocultarAceptados}
+            setOcultarAceptados={setOcultarAceptados}
           />
 
           {/* Tabla de postulantes */}
@@ -184,7 +193,7 @@ export default function PostulantesActualesPage() {
           </div>
 
           {/* Gráficos */}
-          <PostulantesCharts stats={null} postulantes={filteredPostulantes} />
+          <PostulantesCharts postulantes={filteredPostulantes} />
 
           {/* Modales */}
           {currentItems.map((postulante) => (

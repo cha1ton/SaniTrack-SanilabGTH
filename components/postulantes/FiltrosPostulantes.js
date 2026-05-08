@@ -1,5 +1,4 @@
 // components/postulantes/FiltrosPostulantes.js
-
 "use client";
 
 import { ESTADOS_POSTULANTE } from "../../services/postulantesActualesService";
@@ -10,7 +9,9 @@ export default function FiltrosPostulantes({
   filtroEstado,
   setFiltroEstado,
   filtroPeriodo,
-  setFiltroPeriodo
+  setFiltroPeriodo,
+  ocultarAceptados,
+  setOcultarAceptados
 }) {
   const periodos = [
     { valor: "todos", label: "Todos" },
@@ -35,7 +36,7 @@ export default function FiltrosPostulantes({
             />
           </div>
           
-          <div className="col-md-4 mb-2">
+          <div className="col-md-3 mb-2">
             <label className="form-label">📌 Estado</label>
             <select 
               className="form-select"
@@ -51,7 +52,7 @@ export default function FiltrosPostulantes({
             </select>
           </div>
           
-          <div className="col-md-4 mb-2">
+          <div className="col-md-3 mb-2">
             <label className="form-label">📅 Período</label>
             <select 
               className="form-select"
@@ -64,6 +65,21 @@ export default function FiltrosPostulantes({
                 </option>
               ))}
             </select>
+          </div>
+
+          <div className="col-md-2 mb-2 d-flex align-items-end">
+            <div className="form-check">
+              <input
+                type="checkbox"
+                className="form-check-input"
+                id="ocultarAceptados"
+                checked={ocultarAceptados}
+                onChange={(e) => setOcultarAceptados(e.target.checked)}
+              />
+              <label className="form-check-label" htmlFor="ocultarAceptados">
+                🙈 Ocultar aceptados
+              </label>
+            </div>
           </div>
         </div>
       </div>
