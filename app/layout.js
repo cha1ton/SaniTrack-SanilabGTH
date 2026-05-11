@@ -1,7 +1,8 @@
 // app/layout.js
 
 import Script from "next/script";
-import Link from "next/link";
+import Sidebar from "../components/Sidebar";
+import "./globals.css";
 
 export const metadata = {
   title: "Sanilab - Seguimiento de postulantes",
@@ -20,37 +21,7 @@ export default function RootLayout({ children }) {
       <body suppressHydrationWarning>
         <div className="d-flex">
           {/* Sidebar */}
-          <aside
-            className="bg-dark text-white p-3"
-            style={{ width: "250px", minHeight: "100vh" }}
-          >
-            <h4>
-              <Link href="/" className="text-white text-decoration-none">
-                Seguimiento de postulantes - GTH
-              </Link>
-            </h4>
-            <hr />
-
-            <ul className="nav flex-column">
-              <li className="nav-item">
-                <Link href="/onboarding" className="nav-link text-white">
-                  Onboarding
-                </Link>
-              </li>
-              <hr />
-              <li className="nav-item">
-                <Link href="/postulantes-antiguos" className="nav-link text-white">
-                  Postulantes Antiguos
-                </Link>
-              </li>
-              <hr />
-              <li className="nav-item">
-                <Link href="/postulantes-actuales" className="nav-link text-white">
-                  Postulantes Actuales (Wix)
-                </Link>
-              </li>
-            </ul>
-          </aside>
+          <Sidebar />
 
           {/* Contenido */}
           <main className="flex-grow-1 p-4 bg-light">
