@@ -3,7 +3,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { getPostulantes } from "../../services/postulantesService";
+import { getPostulantes } from "../../services/postulantesAntiguosService";
 import {
   normalizarArea,
   normalizarCarrera,

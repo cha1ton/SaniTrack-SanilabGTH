@@ -1,4 +1,4 @@
-// services/postulantesService.js
+// services/postulantesAntiguosService.js
 
 const BASE_URL = process.env.NEXT_PUBLIC_SHEETDB_POSTULANTES_ANTIGUOS;
 const SHEET = encodeURIComponent("Respuestas de formulario de postulación");
