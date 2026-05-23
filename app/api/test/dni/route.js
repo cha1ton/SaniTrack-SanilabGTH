@@ -3,19 +3,24 @@
 const SHEET = encodeURIComponent("Base de datos/Acuerdo de compromiso");
 const API_URL = process.env.NEXT_PUBLIC_SHEETDB_ONBOARDING;
 
+// Configuración CORS para todas las respuestas
+const corsHeaders = {
+  'Access-Control-Allow-Origin': 'https://www.sanilabperu.com',
+  'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
+  'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+  'Access-Control-Max-Age': '86400',
+};
+
+// Manejar OPTIONS (preflight)
+export async function OPTIONS() {
+  return new Response(null, {
+    status: 204,
+    headers: corsHeaders,
+  });
+}
+
+// Manejar POST
 export async function POST(request) {
-  // Headers CORS para permitir peticiones desde Wix
-  const headers = {
-    'Access-Control-Allow-Origin': 'https://www.sanilabperu.com',
-    'Access-Control-Allow-Methods': 'POST, OPTIONS',
-    'Access-Control-Allow-Headers': 'Content-Type',
-  };
-
-  // Manejar preflight request (OPTIONS)
-  if (request.method === 'OPTIONS') {
-    return new Response(null, { status: 204, headers });
-  }
-
   try {
     const { dni } = await request.json();
     console.log(`[TEST] Buscando DNI: ${dni}`);
@@ -26,14 +31,24 @@ export async function POST(request) {
     const usuario = data.find(item => item["DNI (Documento de Identificación)"] === dni);
     
     if (!usuario) {
-      return Response.json({ error: "DNI no encontrado" }, { status: 404, headers });
+      return new Response(
+        JSON.stringify({ error: "DNI no encontrado" }),
+        { status: 404, headers: corsHeaders }
+      );
     }
     
     const nombre = usuario["Nombre y Apellidos"];
     
-    return Response.json({ nombre, dni, encontrado: true }, { headers });
+    return new Response(
+      JSON.stringify({ nombre, dni, encontrado: true }),
+      { status: 200, headers: corsHeaders }
+    );
     
   } catch (error) {
-    return Response.json({ error: "Error interno" }, { status: 500, headers });
+    console.error("[TEST] Error:", error);
+    return new Response(
+      JSON.stringify({ error: "Error interno" }),
+      { status: 500, headers: corsHeaders }
+    );
   }
 }
