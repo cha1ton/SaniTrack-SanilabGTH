@@ -5,7 +5,7 @@ const API_URL = process.env.NEXT_PUBLIC_SHEETDB_ONBOARDING;
 
 const corsHeaders = {
   'Access-Control-Allow-Origin': 'https://www.sanilabperu.com',
-  'Access-Control-Allow-Methods': 'GET, OPTIONS',
+  'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
   'Access-Control-Allow-Headers': 'Content-Type',
 };
 
@@ -17,19 +17,54 @@ export async function GET(request) {
   try {
     const { searchParams } = new URL(request.url);
     const dni = searchParams.get('dni');
+    const nombre = searchParams.get('nombre') || '';
     
     console.log('[Obtener] Buscando progreso para DNI:', dni);
     
     const res = await fetch(`${API_URL}?sheet=${SHEET_PROGRESO}`);
     const data = await res.json();
     
-    const usuario = data.find(item => item.dni === dni);
+    let usuario = data.find(item => item.dni === dni);
     
+    // ✅ Si no existe, CREAR la fila automáticamente
     if (!usuario) {
-      console.log('[Obtener] No encontrado');
+      console.log('[Obtener] DNI no encontrado, creando nueva fila...');
+      
+      const nuevoRegistro = {
+        dni: dni,
+        nombre: nombre,
+        paso1: 'pendiente',
+        paso2: 'pendiente',
+        paso3: 'pendiente',
+        paso4: 'pendiente',
+        paso5: 'pendiente',
+        paso6: 'pendiente',
+        paso7: 'pendiente',
+        paso8: 'pendiente',
+        paso9: 'pendiente',
+        ultima_actualizacion: new Date().toLocaleString('es-PE')
+      };
+      
+      await fetch(`${API_URL}?sheet=${SHEET_PROGRESO}`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ data: nuevoRegistro })
+      });
+      
+      console.log('[Obtener] Fila creada para DNI:', dni);
+      
+      // Devolver progreso vacío
       return new Response(
-        JSON.stringify({ error: "No encontrado", progreso: null }),
-        { status: 404, headers: corsHeaders }
+        JSON.stringify({ 
+          dni, 
+          nombre, 
+          progreso: {
+            paso1: 'pendiente', paso2: 'pendiente', paso3: 'pendiente',
+            paso4: 'pendiente', paso5: 'pendiente', paso6: 'pendiente',
+            paso7: 'pendiente', paso8: 'pendiente', paso9: 'pendiente'
+          }
+        }),
+        { status: 200, headers: corsHeaders }
       );
     }
     
