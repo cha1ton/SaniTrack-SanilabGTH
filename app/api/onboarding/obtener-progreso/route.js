@@ -31,7 +31,7 @@ export async function GET(request) {
     // ✅ Si no existe, CREAR la fila automáticamente
     if (!usuario) {
       console.log('[Obtener] DNI no encontrado, creando nueva fila...');
-      
+      console.log('[Obtener] Datos para nueva fila:', { dni, nombre, carrera, universidad });
       const nuevoRegistro = {
         dni: dni,
         nombre: nombre,
