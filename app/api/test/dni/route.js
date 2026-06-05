@@ -38,9 +38,11 @@ export async function POST(request) {
     }
     
     const nombre = usuario["Nombre y Apellidos"];
+    const carrera = usuario["Carrera"];
+    const universidad = usuario["Centro de estudios"];
     
     return new Response(
-      JSON.stringify({ nombre, dni, encontrado: true }),
+      JSON.stringify({ nombre, dni, carrera, universidad, encontrado: true }),
       { status: 200, headers: corsHeaders }
     );
     

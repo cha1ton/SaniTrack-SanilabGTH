@@ -18,7 +18,9 @@ export async function GET(request) {
     const { searchParams } = new URL(request.url);
     const dni = searchParams.get('dni');
     const nombre = searchParams.get('nombre') || '';
-    
+    const carrera = searchParams.get('carrera') || '';
+    const universidad = searchParams.get('universidad') || '';
+
     console.log('[Obtener] Buscando progreso para DNI:', dni);
     
     const res = await fetch(`${API_URL}?sheet=${SHEET_PROGRESO}`);
@@ -33,6 +35,8 @@ export async function GET(request) {
       const nuevoRegistro = {
         dni: dni,
         nombre: nombre,
+        carrera: carrera,
+        universidad: universidad,
         paso1: 'pendiente',
         paso2: 'pendiente',
         paso3: 'pendiente',
@@ -58,6 +62,8 @@ export async function GET(request) {
         JSON.stringify({ 
           dni, 
           nombre, 
+          carrera,
+          universidad,
           progreso: {
             paso1: 'pendiente', paso2: 'pendiente', paso3: 'pendiente',
             paso4: 'pendiente', paso5: 'pendiente', paso6: 'pendiente',
@@ -84,7 +90,7 @@ export async function GET(request) {
     console.log('[Obtener] Progreso encontrado:', progreso);
     
     return new Response(
-      JSON.stringify({ dni, nombre: usuario.nombre, progreso }),
+      JSON.stringify({ dni, nombre: usuario.nombre, carrera, universidad, progreso }),
       { status: 200, headers: corsHeaders }
     );
     
