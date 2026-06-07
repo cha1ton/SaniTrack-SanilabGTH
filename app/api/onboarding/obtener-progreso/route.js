@@ -74,6 +74,7 @@ export async function GET(request) {
         nombre: empleado["Nombre y Apellidos"] || "",
         carrera: empleado["Carrera"] || "",
         universidad: empleado["Centro de estudios"] || "",
+        celular: empleado["Número de celular "] || "",
         paso1: "pendiente",
         paso2: "pendiente",
         paso3: "pendiente",
@@ -123,6 +124,7 @@ export async function GET(request) {
         nombre: usuario.nombre || "",
         carrera: usuario.carrera || "",
         universidad: usuario.universidad || "",
+        celular: usuario.celular || "",
         progreso,
       }),
       {

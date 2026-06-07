@@ -41,7 +41,7 @@ export async function POST(request) {
     const carrera = usuario["Carrera"];
     const universidad = usuario["Centro de estudios"];
     const celular = usuario["Número de celular "];
-    console.log(`[TEST] DNI encontrado: ${dni}, Nombre: ${nombre}, Carrera: ${carrera}, Universidad: ${universidad}, Teléfono: ${celular}`);
+    console.log(`[TEST] DNI encontrado: ${dni}, Nombre: ${nombre}, Carrera: ${carrera}, Universidad: ${universidad}, Celular: ${celular}`);
     return new Response(
       JSON.stringify({ nombre, dni, carrera, universidad, celular, encontrado: true }),
       { status: 200, headers: corsHeaders }
