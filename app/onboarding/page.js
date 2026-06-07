@@ -14,7 +14,7 @@ export default function OnboardingPage() {
     const mapped = res.map((item) => ({
       id: item.id,
       nombre: item["Nombre y Apellidos"],
-      celular: item["Número de celular "],
+      celular: item["Número de celular"],
       dni: item["DNI (Documento de Identificación)"],
       carrera: item["Carrera"],
       area: item["Área a la que ingresaras(mencionada en la entrevista) "],
