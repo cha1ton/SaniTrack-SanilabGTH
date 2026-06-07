@@ -74,7 +74,7 @@ export async function GET(request) {
         nombre: empleado["Nombre y Apellidos"] || "",
         carrera: empleado["Carrera"] || "",
         universidad: empleado["Centro de estudios"] || "",
-        celular: empleado["Número de celular "] || "",
+        celular: `'${empleado["Número de celular"] || ''}`,
         paso1: "pendiente",
         paso2: "pendiente",
         paso3: "pendiente",
@@ -84,7 +84,15 @@ export async function GET(request) {
         paso7: "pendiente",
         paso8: "pendiente",
         paso9: "pendiente",
-        ultima_actualizacion: new Date().toLocaleString("es-PE"),
+        ultima_actualizacion: new Date().toLocaleString("es-PE", {
+          timeZone: "America/Lima",
+          year: "numeric",
+          month: "2-digit",
+          day: "2-digit",
+          hour: "2-digit",
+          minute: "2-digit",
+          second: "2-digit",
+        }),
       };
 
       console.log("[Obtener] Creando fila automática:", nuevoRegistro);

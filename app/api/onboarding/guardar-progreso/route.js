@@ -18,13 +18,24 @@ export async function POST(request) {
     const body = await request.json();
     console.log('[Guardar] Recibido:', body);
     
-    const { dni, nombre, carrera, universidad, celular, paso1, paso2, paso3, paso4, paso5, paso6, paso7, paso8, paso9, ultima_actualizacion } = body;
+    const { dni, nombre, carrera, universidad, celular, paso1, paso2, paso3, paso4, paso5, paso6, paso7, paso8, paso9} = body;
     
     // Primero buscar si ya existe este DNI
     const searchRes = await fetch(`${API_URL}?sheet=${SHEET_PROGRESO}`);
     const data = await searchRes.json();
     
     const existe = data.find(item => item.dni === dni);
+    
+    const ultima_actualizacion = new Date().toLocaleString("es-PE", {
+      timeZone: "America/Lima",
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit",
+      hour: "2-digit",
+      minute: "2-digit",
+      second: "2-digit",
+    });
+
     
     let resultado;
     if (existe) {
