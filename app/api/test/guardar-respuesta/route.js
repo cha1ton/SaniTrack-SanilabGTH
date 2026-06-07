@@ -22,6 +22,7 @@ export async function POST(request) {
       nombre: body.nombre,
       carrera: body.carrera,
       universidad: body.universidad,
+      celular: body.celular,
       confirmacion_dni: body.confirmacion,
       fecha_respuesta: new Date().toLocaleDateString("es-PE"),
       timestamp: new Date().toISOString()
