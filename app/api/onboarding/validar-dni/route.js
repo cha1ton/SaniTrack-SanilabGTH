@@ -1,4 +1,4 @@
-// app/api/test/dni/route.js
+// app/api/onboarding/validar-dni/route.js
 
 const SHEET = encodeURIComponent("Base de datos/Acuerdo de compromiso");
 const API_URL = process.env.NEXT_PUBLIC_SHEETDB_ONBOARDING;
@@ -41,9 +41,11 @@ export async function POST(request) {
     const carrera = usuario["Carrera"];
     const universidad = usuario["Centro de estudios"];
     const celular = usuario["Número de celular"];
-    console.log(`[TEST] DNI encontrado: ${dni}, Nombre: ${nombre}, Carrera: ${carrera}, Universidad: ${universidad}, Celular: ${celular}`);
+    const area = usuario["Área a la que ingresaras(mencionada en la entrevista) "];
+    const fecha_inicio = usuario["Escribir fecha de inicio en la empresa (acordado en la entrevista)"];
+    console.log(`[TEST] DNI encontrado: ${dni}, Nombre: ${nombre}, Carrera: ${carrera}, Universidad: ${universidad}, Celular: ${celular}, Área: ${area}, Fecha de inicio: ${fecha_inicio}`);
     return new Response(
-      JSON.stringify({ nombre, dni, carrera, universidad, celular, encontrado: true }),
+      JSON.stringify({ nombre, dni, carrera, universidad, celular, area, fecha_inicio, encontrado: true }),
       { status: 200, headers: corsHeaders }
     );
     

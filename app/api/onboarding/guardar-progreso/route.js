@@ -18,7 +18,7 @@ export async function POST(request) {
     const body = await request.json();
     console.log('[Guardar] Recibido:', body);
     
-    const { dni, nombre, carrera, universidad, celular, paso1, paso2, paso3, paso4, paso5, paso6, paso7, paso8, paso9} = body;
+    const { dni, nombre, carrera, universidad, celular, area, fecha_inicio, paso1, paso2, paso3, paso4, paso5, paso6, paso7, paso8, paso9} = body;
     
     // Primero buscar si ya existe este DNI
     const searchRes = await fetch(`${API_URL}?sheet=${SHEET_PROGRESO}`);
@@ -58,7 +58,7 @@ export async function POST(request) {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          data: { dni, nombre, carrera, universidad, celular, paso1, paso2, paso3, paso4, paso5, paso6, paso7, paso8, paso9, ultima_actualizacion }
+          data: { dni, nombre, carrera, universidad, celular, area, fecha_inicio, paso1, paso2, paso3, paso4, paso5, paso6, paso7, paso8, paso9, ultima_actualizacion }
         })
       });
       console.log('[Guardar] Creando nueva fila');

@@ -75,6 +75,8 @@ export async function GET(request) {
         carrera: empleado["Carrera"] || "",
         universidad: empleado["Centro de estudios"] || "",
         celular: `'${empleado["Número de celular"] || ''}`,
+        area: empleado["Área a la que ingresaras(mencionada en la entrevista) "] || "",
+        fecha_inicio: empleado["Escribir fecha de inicio en la empresa (acordado en la entrevista)"] || "",
         paso1: "pendiente",
         paso2: "pendiente",
         paso3: "pendiente",
@@ -133,6 +135,8 @@ export async function GET(request) {
         carrera: usuario.carrera || "",
         universidad: usuario.universidad || "",
         celular: usuario.celular || "",
+        area: usuario.area || "",
+        fecha_inicio: usuario.fecha_inicio || "",
         progreso,
       }),
       {

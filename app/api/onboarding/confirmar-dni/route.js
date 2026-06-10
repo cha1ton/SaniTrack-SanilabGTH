@@ -1,4 +1,4 @@
-// app/api/test/guardar-respuesta/route.js
+// app/api/onboarding/confirmar-dni/route.js
 
 const SHEET_RESPUESTAS = encodeURIComponent("onboarding_respuestas_dni");
 const API_URL = process.env.NEXT_PUBLIC_SHEETDB_ONBOARDING;
