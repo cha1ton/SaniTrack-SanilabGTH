@@ -69,4 +69,4 @@ export default function TablaOnboarding({ currentItems, indexOfFirstItem }) {
       )}
     </div>
   );
-}wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww
+}
