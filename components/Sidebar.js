@@ -24,7 +24,7 @@ const Sidebar = () => {
           Seguimiento de postulantes - GTH
         </Link>
       </h4>
-
+      <img src="/logo-sanilab.png" alt="Logo" className="img-fluid mb-3" />
       <hr />
 
       <ul className="nav flex-column">
