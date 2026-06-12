@@ -4,6 +4,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import Image from "next/image";
 
 const Sidebar = () => {
   const pathname = usePathname();
@@ -19,12 +20,17 @@ const Sidebar = () => {
       className="bg-dark text-white p-3"
       style={{ width: "250px", minHeight: "100vh" }}
     >
-      <h4>
-        <Link href="/" className="text-white text-decoration-none">
-          Seguimiento de postulantes - GTH
-        </Link>
-      </h4>
-      <img src="/logo-sanilab.png" alt="Logo" className="img-fluid mb-3" />
+      {/* Logo centrado */}
+      <div className="text-center mb-3">
+        <Image
+          src="/logo-sanilab.webp"
+          alt="Sanilab"
+          width={218}
+          height={65}
+          className="img-fluid"
+          priority
+        />
+      </div>
       <hr />
 
       <ul className="nav flex-column">
@@ -41,7 +47,6 @@ const Sidebar = () => {
             <hr />
           </li>
         ))}
-      
       </ul>
     </aside>
   );

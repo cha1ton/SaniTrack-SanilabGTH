@@ -5,8 +5,11 @@ import Sidebar from "../components/Sidebar";
 import "./globals.css";
 
 export const metadata = {
-  title: "Sanilab - Seguimiento de postulantes",
-  description: "Sistema de Gestión de Talento Humano",
+  title: "SaniTrack - Gestión de Talento",
+  description: "Sistema centralizado para seguimiento de onboarding y postulantes",
+  icons: {
+    icon: "/favicon.ico",
+  },
 };
 
 export default function RootLayout({ children }) {
