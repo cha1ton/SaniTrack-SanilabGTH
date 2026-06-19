@@ -3,6 +3,8 @@
 import Script from "next/script";
 import Sidebar from "../components/Sidebar";
 import "./globals.css";
+import "../styles/variables.css";
+import "../styles/sidebar.css";
 
 export const metadata = {
   title: "SaniTrack - Gestión de Talento",

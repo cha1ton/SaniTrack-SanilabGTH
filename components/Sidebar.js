@@ -12,43 +12,43 @@ const Sidebar = () => {
   const menuItems = [
     { href: "/onboarding", label: "Onboarding" },
     { href: "/postulantes-antiguos", label: "Postulantes Antiguos" },
-    { href: "/postulantes-actuales", label: "Postulantes Actuales (Wix)" },
+    { href: "/postulantes-actuales", label: "Postulantes Actuales" },
   ];
 
   return (
-    <aside
-      className="bg-dark text-white p-3"
-      style={{ width: "250px", minHeight: "100vh" }}
-    >
-      {/* Logo centrado */}
-      <div className="text-center mb-3">
-        <Image
-          src="/logo-sanilab.webp"
-          alt="Sanilab"
-          width={218}
-          height={65}
-          className="img-fluid"
-          priority
-        />
+    <aside className="sidebar p-3">
+      <div className="text-center mb-3 sidebar-logo">
+        <Link href="/">
+          <Image
+            src="/logo-sanilab.webp"
+            alt="Sanilab"
+            width={218}
+            height={65}
+            className="img-fluid"
+            priority
+          />
+        </Link>
       </div>
-      <hr />
 
-      <ul className="nav flex-column">
-        {menuItems.map((item) => (
-          <li className="nav-item" key={item.href}>
-            <Link
-              href={item.href}
-              className={`nav-link text-white ${
-                pathname === item.href ? "active" : ""
-              }`}
-            >
-              {item.label}
-            </Link>
-            <hr />
-          </li>
-        ))}
-      </ul>
-    </aside>
+  <hr />
+
+  <ul className="nav flex-column">
+    {menuItems.map((item) => (
+      <li className="nav-item" key={item.href}>
+        <Link
+          href={item.href}
+          className={`nav-link ${
+            pathname === item.href ? "active" : ""
+          }`}
+        >
+          {item.label}
+        </Link>
+
+        <hr />
+      </li>
+    ))}
+  </ul>
+</aside>
   );
 };
 

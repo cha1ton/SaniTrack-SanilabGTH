@@ -1,0 +1,61 @@
+/* styles/sidebar.css */
+
+.sidebar {
+  width: var(--sidebar-width);
+  min-height: 100vh;
+
+  background: linear-gradient(
+    180deg,
+    var(--color-bg-dark) 0%,
+    var(--color-bg-dark-2) 60%,
+    var(--color-bg-dark-3) 100%
+  );
+
+  color: var(--color-text);
+
+  border-right: 1px solid var(--color-border);
+
+  position: sticky;
+  top: 0;
+}
+
+.sidebar hr {
+  /* border-color: var(--color-border);
+  opacity: 1; */
+  border-color: white;
+}
+
+.sidebar .nav-link {
+  color: var(--color-text-muted);
+  padding: 0.9rem 1rem;
+  border-radius: 10px;
+
+  transition: var(--transition-default);
+}
+
+.sidebar .nav-link:hover {
+  background: rgba(57, 184, 181, 0.1);
+  color: var(--color-text);
+
+  transform: translateX(4px);
+}
+
+.sidebar .nav-link.active {
+  background: linear-gradient(
+    90deg,
+    rgba(57, 184, 181, 0.18) 0%,
+    rgba(57, 184, 181, 0.08) 100%
+  );
+
+  color: var(--color-text);
+
+  border-left: 4px solid var(--color-secondary);
+
+  box-shadow: var(--shadow-primary);
+
+  font-weight: 600;
+}
+
+.sidebar-logo {
+  padding: 0.5rem;
+}
