@@ -3,11 +3,11 @@
 
 import { useEffect, useState } from "react";
 import { getPostulantesActuales, ESTADOS_POSTULANTE } from "../../services/postulantesActualesService";
-import FiltrosPostulantes from "../../components/postulantes/FiltrosPostulantes";
-import TablaPostulantes from "../../components/postulantes/TablaPostulantes";
-import ModalDetalle from "../../components/postulantes/ModalDetalle";
-import ReporteResumido from "../../components/postulantes/ReporteResumido";
-import PostulantesCharts from "../../components/PostulantesCharts";
+import FiltrosPostulantes from "../../components/postulantes-actuales/FiltrosPostulantes";
+import TablaPostulantes from "../../components/postulantes-actuales/TablaPostulantes";
+import ModalDetalle from "../../components/postulantes-actuales/ModalDetalle";
+import ReporteResumido from "../../components/postulantes-actuales/ReporteResumido";
+import PostulantesCharts from "../../components/postulantes-actuales/PostulantesCharts";
 
 export default function PostulantesActualesPage() {
   const [todosPostulantes, setTodosPostulantes] = useState([]);

@@ -9,7 +9,7 @@ import {
   normalizarCarrera,
   normalizarFuenteCaptacion,
 } from "../../utils/normalizersCampos";
-import BarChart from "../../components/BarChart";
+import BarChart from "../../components/postulantes-antiguos/BarChart";
 
 export default function PostulantesAntiguosPage() {
   const [data, setData] = useState([]);

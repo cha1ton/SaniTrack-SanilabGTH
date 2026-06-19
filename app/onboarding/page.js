@@ -4,8 +4,8 @@
 
 import { useEffect, useState } from "react";
 import { getOnboardingProgreso } from "../../services/onboardingService";
-import TablaOnboarding from "../../components/TablaOnboarding";
-import FiltrosOnboarding from "../../components/FiltrosOnboarding";
+import TablaOnboarding from "../../components/onboarding/TablaOnboarding";
+import FiltrosOnboarding from "../../components/onboarding/FiltrosOnboarding";
 
 export default function OnboardingPage() {
   const [empleados, setEmpleados] = useState([]);
