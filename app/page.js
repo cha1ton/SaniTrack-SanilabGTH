@@ -4,9 +4,14 @@ export default function Home() {
   return (
     <div>
       {/* Hero / Encabezado */}
-      <div className="text-white p-4 rounded mb-4" style={{ backgroundColor: "#212529" }}>
-        <h1 className="display-5 fw-bold">Sistema GTH</h1>
-        <p className="lead mb-0">Gestión de Talento Humano</p>
+      <div
+        className="text-white p-4 rounded mb-4"
+        style={{ backgroundColor: "#212529" }}
+      >
+        <h1 className="display-5 fw-bold">SaniTrack</h1>
+        <p className="lead mb-0">
+          Plataforma de gestión y seguimiento del talento humano
+        </p>
       </div>
 
       {/* Descripción */}
@@ -14,19 +19,26 @@ export default function Home() {
         <div className="col-12">
           <div className="card shadow-sm">
             <div className="card-body">
-              <h5 className="card-title text-primary">📋 Sobre el sistema</h5>
+              <h5 className="card-title text-primary">
+                📋 Sobre la plataforma
+              </h5>
+
               <p className="card-text">
-                Plataforma orientada a la gestión y organización de información
-                relacionada al talento humano. Permite centralizar datos y facilitar
-                procesos internos.
+                SaniTrack centraliza la información relacionada con los
+                procesos de onboarding y gestión de postulantes, facilitando el
+                seguimiento, la organización y el acceso a datos clave del área
+                de Talento Humano.
               </p>
 
               <hr />
 
-              <h5 className="card-title text-primary">🎯 Propósito</h5>
+              <h5 className="card-title text-primary">🎯 Objetivo</h5>
+
               <p className="card-text">
-                Brindar una herramienta simple para mejorar la administración,
-                seguimiento y análisis de información.
+                Optimizar la gestión del talento mediante herramientas que
+                permitan supervisar el avance de nuevos integrantes, consultar
+                información de postulantes y apoyar la toma de decisiones con
+                datos organizados.
               </p>
             </div>
           </div>
@@ -38,34 +50,40 @@ export default function Home() {
         <div className="col-md-4 mb-3">
           <div className="card text-center shadow-sm h-100">
             <div className="card-body">
+              <h1 className="display-4 text-primary">🚀</h1>
+
+              <h5 className="card-title">Onboarding</h5>
+
+              <p className="card-text text-muted">
+                Seguimiento del progreso e integración de nuevos miembros.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div className="col-md-4 mb-3">
+          <div className="card text-center shadow-sm h-100">
+            <div className="card-body">
+              <h1 className="display-4 text-primary">👥</h1>
+
+              <h5 className="card-title">Postulantes</h5>
+
+              <p className="card-text text-muted">
+                Consulta y administración de postulantes actuales e históricos.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div className="col-md-4 mb-3">
+          <div className="card text-center shadow-sm h-100">
+            <div className="card-body">
               <h1 className="display-4 text-primary">📊</h1>
-              <h5 className="card-title">Reportes</h5>
-              <p className="card-text text-muted">
-                Visualización general de información.
-              </p>
-            </div>
-          </div>
-        </div>
 
-        <div className="col-md-4 mb-3">
-          <div className="card text-center shadow-sm h-100">
-            <div className="card-body">
-              <h1 className="display-4 text-primary">✅</h1>
-              <h5 className="card-title">Gestión</h5>
-              <p className="card-text text-muted">
-                Administración de procesos internos.
-              </p>
-            </div>
-          </div>
-        </div>
+              <h5 className="card-title">Reportes y Análisis</h5>
 
-        <div className="col-md-4 mb-3">
-          <div className="card text-center shadow-sm h-100">
-            <div className="card-body">
-              <h1 className="display-4 text-primary">📈</h1>
-              <h5 className="card-title">Análisis</h5>
               <p className="card-text text-muted">
-                Apoyo en la toma de decisiones.
+                Visualización de métricas e indicadores para apoyar decisiones.
               </p>
             </div>
           </div>
@@ -77,12 +95,16 @@ export default function Home() {
         <div className="col-12">
           <div className="card shadow-sm">
             <div className="card-body">
-              <h5 className="card-title text-primary">✨ Beneficios</h5>
+              <h5 className="card-title text-primary">
+                ✨ Beneficios principales
+              </h5>
+
               <ul className="mt-3 mb-0">
-                <li>Centralización de información</li>
-                <li>Mejor organización de datos</li>
-                <li>Facilidad de uso</li>
-                <li>Soporte para análisis general</li>
+                <li>Centralización de información en una sola plataforma.</li>
+                <li>Seguimiento estructurado del proceso de onboarding.</li>
+                <li>Acceso rápido a información de postulantes.</li>
+                <li>Mejor organización y trazabilidad de datos.</li>
+                <li>Soporte para el análisis y la toma de decisiones.</li>
               </ul>
             </div>
           </div>
