@@ -34,3 +34,19 @@ a {
   color: inherit;
   text-decoration: none;
 }
+
+/* Utilidades y ajustes de estilo alineados a variables */
+.hero {
+  background: var(--color-bg-dark-2);
+  color: var(--color-text);
+  padding: 1.25rem;
+  border-radius: 0.5rem;
+}
+
+.text-primary {
+  color: var(--color-primary) !important;
+}
+
+.text-muted {
+  color: var(--color-text-muted) !important;
+}

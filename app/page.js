@@ -4,10 +4,7 @@ export default function Home() {
   return (
     <div>
       {/* Hero / Encabezado */}
-      <div
-        className="text-white p-4 rounded mb-4"
-        style={{ backgroundColor: "#212529" }}
-      >
+      <div className="hero mb-4">
         <h1 className="display-5 fw-bold">SaniTrack</h1>
         <p className="lead mb-0">
           Plataforma de gestión y seguimiento del talento humano
