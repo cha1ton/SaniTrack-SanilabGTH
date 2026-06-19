@@ -1,14 +1,21 @@
 // app/page.js
 
+import { ClipboardList, Users, BarChart3, Sparkles } from "lucide-react";
+
 export default function Home() {
   return (
     <div>
       {/* Hero / Encabezado */}
       <div className="hero mb-4">
-        <h1 className="display-5 fw-bold">SaniTrack</h1>
-        <p className="lead mb-0">
-          Plataforma de gestión y seguimiento del talento humano
-        </p>
+        <div className="d-flex align-items-center gap-3">
+          <Sparkles className="feature-icon" />
+          <div>
+            <h1 className="display-5 fw-bold">SaniTrack</h1>
+            <p className="lead mb-0">
+              Plataforma de gestión y seguimiento del talento humano
+            </p>
+          </div>
+        </div>
       </div>
 
       {/* Descripción */}
@@ -47,7 +54,7 @@ export default function Home() {
         <div className="col-md-4 mb-3">
           <div className="card text-center shadow-sm h-100">
             <div className="card-body">
-              <h1 className="display-4 text-primary">🚀</h1>
+              <ClipboardList className="feature-icon text-primary" />
 
               <h5 className="card-title">Onboarding</h5>
 
@@ -61,7 +68,7 @@ export default function Home() {
         <div className="col-md-4 mb-3">
           <div className="card text-center shadow-sm h-100">
             <div className="card-body">
-              <h1 className="display-4 text-primary">👥</h1>
+              <Users className="feature-icon text-primary" />
 
               <h5 className="card-title">Postulantes</h5>
 
@@ -75,7 +82,7 @@ export default function Home() {
         <div className="col-md-4 mb-3">
           <div className="card text-center shadow-sm h-100">
             <div className="card-body">
-              <h1 className="display-4 text-primary">📊</h1>
+              <BarChart3 className="feature-icon text-primary" />
 
               <h5 className="card-title">Reportes y Análisis</h5>
 
@@ -96,12 +103,27 @@ export default function Home() {
                 ✨ Beneficios principales
               </h5>
 
-              <ul className="mt-3 mb-0">
-                <li>Centralización de información en una sola plataforma.</li>
-                <li>Seguimiento estructurado del proceso de onboarding.</li>
-                <li>Acceso rápido a información de postulantes.</li>
-                <li>Mejor organización y trazabilidad de datos.</li>
-                <li>Soporte para el análisis y la toma de decisiones.</li>
+              <ul className="benefit-list mt-3 mb-0">
+                <li>
+                  <Sparkles size={18} />
+                  <span>Centralización de información en una sola plataforma.</span>
+                </li>
+                <li>
+                  <Sparkles size={18} />
+                  <span>Seguimiento estructurado del proceso de onboarding.</span>
+                </li>
+                <li>
+                  <Sparkles size={18} />
+                  <span>Acceso rápido a información de postulantes.</span>
+                </li>
+                <li>
+                  <Sparkles size={18} />
+                  <span>Mejor organización y trazabilidad de datos.</span>
+                </li>
+                <li>
+                  <Sparkles size={18} />
+                  <span>Soporte para el análisis y la toma de decisiones.</span>
+                </li>
               </ul>
             </div>
           </div>

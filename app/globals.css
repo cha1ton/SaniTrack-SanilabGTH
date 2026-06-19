@@ -41,6 +41,40 @@ a {
   color: var(--color-text);
   padding: 1.25rem;
   border-radius: 0.5rem;
+  border: 1px solid rgba(57, 184, 181, 0.16);
+}
+
+.feature-icon {
+  color: var(--color-primary);
+  min-width: 42px;
+  min-height: 42px;
+}
+
+.benefit-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.benefit-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin-bottom: 0.8rem;
+  color: var(--foreground);
+}
+
+.benefit-list li span {
+  display: inline-block;
+}
+
+.benefit-list li svg {
+  margin-top: 0.15rem;
+  color: var(--color-primary);
+}
+
+.card {
+  border: 1px solid rgba(57, 184, 181, 0.12);
 }
 
 .text-primary {

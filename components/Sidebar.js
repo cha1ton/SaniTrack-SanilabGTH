@@ -5,14 +5,15 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
+import { ClipboardList, Users, Archive } from "lucide-react";
 
 const Sidebar = () => {
   const pathname = usePathname();
 
   const menuItems = [
-    { href: "/onboarding", label: "Onboarding" },
-    { href: "/postulantes-antiguos", label: "Postulantes Antiguos" },
-    { href: "/postulantes-actuales", label: "Postulantes Actuales" },
+    { href: "/onboarding", label: "Onboarding", Icon: ClipboardList },
+    { href: "/postulantes-antiguos", label: "Postulantes Antiguos", Icon: Archive },
+    { href: "/postulantes-actuales", label: "Postulantes Actuales", Icon: Users },
   ];
 
   return (
@@ -32,23 +33,24 @@ const Sidebar = () => {
 
   <hr />
 
-  <ul className="nav flex-column">
-    {menuItems.map((item) => (
-      <li className="nav-item" key={item.href}>
-        <Link
-          href={item.href}
-          className={`nav-link ${
-            pathname === item.href ? "active" : ""
-          }`}
-        >
-          {item.label}
-        </Link>
+      <ul className="nav flex-column">
+        {menuItems.map((item) => (
+          <li className="nav-item" key={item.href}>
+            <Link
+              href={item.href}
+              className={`nav-link ${
+                pathname === item.href ? "active" : ""
+              }`}
+            >
+              <item.Icon className="nav-icon" size={18} />
+              {item.label}
+            </Link>
 
-        <hr />
-      </li>
-    ))}
-  </ul>
-</aside>
+            <hr />
+          </li>
+        ))}
+      </ul>
+    </aside>
   );
 };
 
