@@ -12,8 +12,8 @@ const Sidebar = () => {
 
   const menuItems = [
     { href: "/onboarding", label: "Onboarding", Icon: ClipboardList },
-    { href: "/postulantes-antiguos", label: "Postulantes Antiguos", Icon: Archive },
     { href: "/postulantes-actuales", label: "Postulantes Actuales", Icon: Users },
+    { href: "/postulantes-antiguos", label: "Postulantes Antiguos", Icon: Archive },
   ];
 
   return (

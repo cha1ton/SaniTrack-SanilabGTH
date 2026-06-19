@@ -2,7 +2,13 @@
 
 .sidebar {
   width: var(--sidebar-width);
+  min-width: var(--sidebar-width);
+  /* Evitar que el sidebar se reduzca por el flex container */
+  flex: 0 0 var(--sidebar-width);
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
 
   background: linear-gradient(
     180deg,
