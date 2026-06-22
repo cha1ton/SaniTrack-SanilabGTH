@@ -1,4 +1,5 @@
-// components/PostulantesCharts.js
+// components/postulantes-actuales/PostulantesCharts.js
+
 "use client";
 
 import { useEffect, useRef } from "react";

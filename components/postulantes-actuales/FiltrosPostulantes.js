@@ -1,4 +1,5 @@
-// components/postulantes/FiltrosPostulantes.js
+// components/postulantes-actuales/FiltrosPostulantes.js
+
 "use client";
 
 import { ESTADOS_POSTULANTE } from "../../services/postulantesActualesService";

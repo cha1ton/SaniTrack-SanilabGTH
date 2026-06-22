@@ -1,4 +1,4 @@
-// components/postulantes/TablaPostulantes.js
+// components/postulantes-actuales/TablaPostulantes.js
 
 "use client";
 

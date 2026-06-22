@@ -1,4 +1,5 @@
-// components/postulantes/ModalDetalle.js
+// components/postulantes-actuales/ModalDetalle.js
+
 "use client";
 
 export default function ModalDetalle({ postulante }) {

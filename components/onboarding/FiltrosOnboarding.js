@@ -1,4 +1,4 @@
-// components/FiltrosOnboarding.js
+// components/onboarding/FiltrosOnboarding.js
 
 "use client";
 

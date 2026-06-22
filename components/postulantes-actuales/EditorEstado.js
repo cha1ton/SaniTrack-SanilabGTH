@@ -1,4 +1,4 @@
-// components/postulantes/EditorEstado.js
+// components/postulantes-actuales/EditorEstado.js
 "use client";
 
 import { useState } from "react";

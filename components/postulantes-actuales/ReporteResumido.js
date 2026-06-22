@@ -1,4 +1,5 @@
-// components/postulantes/ReporteResumido.js
+// components/postulantes-actuales/ReporteResumido.js
+
 "use client";
 
 import { useState } from "react";

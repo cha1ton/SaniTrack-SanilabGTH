@@ -1,4 +1,4 @@
-// components/OnboardingTimeline.js
+// components/onboarding/OnboardingTimeline.js
 
 "use client";
 

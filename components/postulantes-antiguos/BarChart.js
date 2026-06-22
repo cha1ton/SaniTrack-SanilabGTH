@@ -1,4 +1,4 @@
-// components/BarChart.js
+// components/postulantes-antiguos/BarChart.js
 
 "use client";
 

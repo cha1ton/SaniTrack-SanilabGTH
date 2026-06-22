@@ -1,4 +1,4 @@
-// components/TablaOnboarding.js
+// components/onboarding/TablaOnboarding.js
 
 "use client";
 
